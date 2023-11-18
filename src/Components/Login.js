@@ -14,6 +14,9 @@ const Login = () => {
                 <input type="text"/> <br/>
                     <input type="text"/><br/>
                     <input type="text"/>
+                    <input type="email"/>
+
+                    
                     <br/>
                     <button>Register</button>
                 </div>
