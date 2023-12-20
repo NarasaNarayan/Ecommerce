@@ -1,52 +1,69 @@
+import { useState } from 'react';
 import './App.css';
-import {useState  } from 'react';
-import Product from './Cart-page/Product';
-import Cart from './Cart-page/Cart';
-import 'bootstrap/dist/css/bootstrap.css';
 import Login from './Components/Login';
-
+import Navbar from './Components/Navbar';
+import TopProducts from './Components/TopProducts';
+import {BrowserRouter,Routes,Route,} from 'react-router-dom'
+import productsData from './Assets/productsData';
+import ProductDetails from './Components/ProductDetails';
+import Cart from './Components/Cart';
 
 
 function App() {
-  const [cart, setcart] = useState([]);
- 
-  const addtocart = (product) => {
-    // Check if the product is already in the cart
-    const existingProduct = cart.find(item => item.id === product.id);
 
-    if (existingProduct) {
+  const [product, setProduct] = useState(null)
 
-      // If product is already in the cart, update the quantity instead of adding a duplicate
-      setcart(cart.map(item =>
-        item.id === product.id ? { ...item, quantity: item.quantity + 1 } : item
-      ));
-    } else {
-      // If product is not in the cart, add it to the cart with quantity 1
-      setcart([...cart, { ...product, quantity: 1 }]);
-    }
-  };
+  const [Data, setData] = useState(productsData)
+  const [cartData, setcartData] = useState(null)
 
-
- const products=[
-  {id:1, name:'moboile',price:200,disc:'this is mi mobiles'},
-  {id:2, name:'Tv',price:300,disc:'this is mi tv'}
-
- ]
-
- const removecart=(product)=>{
+const getProductData=(Data)=>{
+setProduct(Data)
   
-const updtedcart=cart.filter(item=>item.id !==product.id)
-setcart(updtedcart)
- }
-  return (
-   <div>
+ 
+}
 
-  {products.map((product)=>(<Product key={product.id} product={product} addtocart={addtocart} />))}
+const getCartData=(item)=>{
+  setcartData([...cartData,{item} ]);
+}
+// const getCartData = (item) => {
+//   const quantity = 1
+//   const totalprice = 0
 
-<Cart cart={cart} removecart={removecart}/>
+//   const existingProduct = cartData.find(product => product.id === item.id);
 
-<Login/>
-   </div>
+//   if (existingProduct) {
+
+//     setcartData(cartData.map(product =>
+//       product.id === item.id ? { ...product, quantity: item.quantity + 1, } : product
+//     ));
+//   } else {
+//     setcartData([...cartData, { ...product, quantity: 1 }]);
+//   }
+
+// };
+
+  console.log('cartdata',cartData);
+return(
+ <div>
+ <BrowserRouter>
+ <Navbar/>
+  <Routes>
+<Route path='/' element={<TopProducts getProductData={getProductData} Data={Data} getCartData={getCartData}/>}/>
+  <Route path='/ProductDetails' element={<ProductDetails product={product} />}/>
+  <Route path='/Login' element={<Login/>}/>
+  <Route path='/Cart' element={<Cart cartData={cartData}/>}/>
+
+
+
+
+  
+    
+  </Routes>
+ </BrowserRouter>
+ 
+ </div>
+ 
+  
   );
 }
 
