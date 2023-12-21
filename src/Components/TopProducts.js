@@ -1,6 +1,7 @@
 import React from 'react'
 import Buttons from './Buttons'
 import { useNavigate } from 'react-router-dom'
+import ProductCarousel from './ProductCarousel'
 
 const TopProducts = ({ getProductData,Data,getCartData }) => {
 const navigate=useNavigate()
@@ -103,7 +104,7 @@ const navigate=useNavigate()
       {/* ProductCarousel ends here  */}
 
 
-
+   <ProductCarousel/>
 
       {/* top products starts here */}
 
