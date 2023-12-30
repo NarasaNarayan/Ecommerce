@@ -33,7 +33,7 @@ const productsData = [
     },
     {
         id: 2,
-        tag: "featured-product",
+        tag: "featuredproduct",
         heroImage: "../Assets/images/products/boat518-1.png",
         images: [
             "../Assets/images/products/boat518-1.png",
@@ -48,7 +48,7 @@ const productsData = [
         type: "On Ear",
         connectivity: "Wireless",
         finalPrice: 1299,
-        originalPrice: 3990,
+        originalPrice: 3990,    
         quantity: 1,
         ratings: 1321,
         rateCount: 5,
@@ -171,7 +171,7 @@ const productsData = [
     },
     {
         id: 8,
-        tag: "featured-product",
+        tag: "featuredproduct",
         heroImage: "../Assets/images/products/jbl760nc-1.png",
         images: [
             "../Assets/images/products/jbl760nc-1.png",
@@ -194,7 +194,7 @@ const productsData = [
     },
     {
         id: 9,
-        tag: "featured-product",
+        tag: "featuredproduct",
         heroImage: "../Assets/images/products/boat255r-1.png",
         images: [
             "../Assets/images/products/boat255r-1.png",
@@ -283,7 +283,7 @@ const productsData = [
     },
     {
         id: 13,
-        tag: "featured-product",
+        tag: "featuredproduct",
         heroImage: "../Assets/images/products/jbl-endu-1.png",
         images: [
             "../Assets/images/products/jbl-endu-1.png",
@@ -306,7 +306,7 @@ const productsData = [
     },
     {
         id: 14,
-        tag: "featured-product",
+        tag: "featuredproduct",
         heroImage: "../Assets/images/products/boat203-1.png",
         images: [
             "../Assets/images/products/boat203-1.png",
@@ -438,6 +438,7 @@ const productsData = [
         rateCount: 4,
         path: "/product-details/",
     },
+    
 ];
 
 export default productsData;

@@ -1,12 +1,17 @@
 import React from 'react'
 import Buttons from './Buttons'
-import { useNavigate } from 'react-router-dom'
-import ProductCarousel from './ProductCarousel'
+import { Link, useNavigate } from 'react-router-dom'
+import Courosel from './Courosel'
+import ScrollingCarousel from './ScrollingCarousel'
 
-const TopProducts = ({ getProductData,Data,getCartData }) => {
+
+const TopProducts = ({ getProductData,Data,getCartData,menuitems,filterData,setData }) => {
+  console.log('topproductsdata',Data);
 const navigate=useNavigate()
   const SendProductDetails = (item) => {
     getProductData(item)
+
+    console.log('image',Data);
     navigate('/ProductDetails')
   }
 
@@ -17,104 +22,28 @@ const navigate=useNavigate()
   return (
     <div>
 
-      {/* Carousel starts here */}
+{/* Carousel starts here */}
 
-      <div id="carouselExampleIndicators" class="carousel slide">
-        <div class="carousel-indicators">
-          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
-          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
-        </div>
-        <div class="carousel-inner">
-          <div class="carousel-item active bg-dark">
-          <div>
-              <div className="row">
-              <div className="col mt-5 my-5 text-left " style={{ marginLeft: '15rem' }}>
-                  <p className='text-white' >boat Airdropes 131 WX-j8697</p>
-
-                  <h4 className='text-white'>Featherweight For <br />
-                    Comport All-Day
-                  </h4>
-                  <p className='text-white'> @1099 <s>@2099</s></p>
-                  <button className='btn btn-danger btn-sm'>Shop Now</button>
-                </div>
-                <div className="col">
-                  <img classNameName='img-fluid' src={require('../Assets/images/products/boat410-2.png')} alt='' style={{ width: '300px', height: '300px' }} />
-                </div>
-              </div>
-            
-            </div>
-
-          </div>
-          <div class="carousel-item">
-          <div>
-              <div className="row bg-dark">
-                <div className="col mt-5  text-left my-5" style={{ marginLeft: '15rem' }}>
-                  <p className='text-white' >boat Airdropes 131 WX-j8697</p>
-
-                  <h4 className='text-white'>Featherweight For <br />
-                    Comport All-Day
-                  </h4>
-                  <p className='text-white'> @1099 <s>@2099</s></p>
-                  <button className='btn btn-danger btn-sm'>Shop Now</button>
-                </div>
-                <div className="col">
-                  <img classNameName='img-fluid' src={require('../Assets/images/products/boat131-3.png')} alt='' style={{ width: '300px', height: '300px' }} />
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="carousel-item">
-          <div>
-              <div className="row bg-dark">
-                <div className="col mt-5  text-left my-5" style={{ marginLeft: '15rem' }}>
-                  <p className='text-white' >Sony WX-j8697</p>
-
-                  <h4 className='text-white'>Give Your Favourite <br />
-                    Music A Boost.
-                  </h4>
-                  <p className='text-white'> @19,990</p>
-                  <button className='btn btn-danger btn-sm'>Shop Now</button>
-                </div>
-                <div className="col">
-                  <img classNameName='img-fluid' src={require('../Assets/images/products/sonyXb910n-1.png')} alt='' style={{ width: '300px', height: '300px' }} />
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Previous</span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Next</span>
-        </button>
-      </div>
-
-
-
-      {/* Carousel ends  here */}
+    
+      <Courosel/>
+{/* Carousel ends  here */}
 
 
       {/* ProductCarousel sarts here  */}
-
-
+   <ScrollingCarousel getProductData={getProductData} Data={Data} />
       {/* ProductCarousel ends here  */}
 
 
-   <ProductCarousel/>
 
       {/* top products starts here */}
 
 
-      <h1 className='text-center '>Top Products</h1>
+      <h1 className='text-center text-white '>Top Products</h1>
 
-      <Buttons />
+      <Buttons menuitems={menuitems} filterData={filterData}setData={setData}  />
 
-      <div class="container pt-2" style={{ backgroundColor: ' rgb(20,18,20)' }}>
-        <div class="row " >
+      <div className="container-fluid pt-2 d-flex" style={{ backgroundColor: ' rgb(20,18,20)' }}>
+        <div className="row " >
 
 
           {
@@ -129,7 +58,7 @@ const navigate=useNavigate()
 
                   <div className="card-body">
                     <h5 className='text-white'>{item.title}</h5>
-                    <p className='text-white '  minlength="10"> {item.info}</p>
+                    <p className='text-white '    > {item.info.substring(0,20)}...</p>
 
                     <hr className='text-white'/>
 
@@ -143,9 +72,16 @@ const navigate=useNavigate()
 
             )
 
-            )
+            ) 
           }
-
+          
+          <div className="card d-flex justify-content-center align-items-center mx-auto mx-auto " style={{width:'22%',backgroundColor: ' rgb(20,18,20)',border: "0.1px solid rgb(114, 112, 112)"}} >
+  <div className="card-body justify-content-center align-items-center mx-auto mx-auto p-5">
+   
+   <Link to="/Specification" className="btn btn-danger mt-5 ">Browse All products</Link>
+  </div>
+</div>
+          
 
         </div>
       </div>

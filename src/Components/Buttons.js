@@ -1,14 +1,20 @@
 import React from 'react'
+import productsData from '../Assets/productsData';
 
-const Buttons = ({item}) => {
+const Buttons = ({menuitems,filterData,setData}) => {
+  console.log('menu',);
  
   return (
     <div className='d-flex justify-content-center'>
-    <button className='btn  '>All</button>
-    <button className='btn'>Headphones</button>
-    <button className='btn'>Earbuds</button>
-    <button className='btn'>Earphones</button>
-    <button className='btn'>Neckbands</button>
+
+    {
+      menuitems.map((val)=>(
+        <button onClick={()=>filterData(val)} className='btn  text-white '>{val}</button>
+
+      ))
+    }
+    <button onClick={()=>setData(productsData)} className='btn  text-white '>All</button>
+  
 
 
      
