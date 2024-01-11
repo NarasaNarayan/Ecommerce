@@ -4,10 +4,27 @@ import { useNavigate } from 'react-router-dom'
 
 const Specification = ({ getProductData, Data, getCartData, menuitems, filterData, setData }) => {
     const navigate = useNavigate()
+    const [filterDataCopy, setfilterDataCopy] = useState([])
     const [filterData1, setfilterData1] = useState(productsData)
+    const [sortedPriceProducts, setsortedPriceProducts] = useState([])
     const [range, setrange] = useState(499)
     const [search, setsearch] = useState('')
-    const [backgroundColor, setbackgroundColor] = useState('')
+    const [activeButton, setactiveButton] = useState(null)
+
+
+  const handleRangeChange = (event) => {
+    const selectedRange = event.target.value;
+    const [minPrice, maxPrice] = selectedRange.split('-')
+    const filteredProducts = [...sortedPriceProducts].filter((product) =>
+      [minPrice, maxPrice].every((value, index) =>
+        !value || (index === 0 ? product.finalPrice >= Number(value) : product.finalPrice
+         <= Number(value))
+      )
+    );
+    console.log(filteredProducts);
+    setfilterData1(filteredProducts)
+  };
+
 
 
 
@@ -29,114 +46,110 @@ const Specification = ({ getProductData, Data, getCartData, menuitems, filterDat
         setfilterData1(result)
     }
 
-    const lowestPrice = (cat) => {
-        const result = productsData.filter((item) => {
-            return item.finalPrice > 5000 === cat
-        })
-        setfilterData1(result)
-    }
+    const priceRanges = [
+        '100-500',
+        '500-5000',
+      ];
 
-    const jblHandler = (cat) => {
-        const result = productsData.filter((item) => {
-            return item.brand === cat
-        })
-        setfilterData1(result)
-    }
-    const boatHandler = (cat) => {
-        const result = productsData.filter((item) => {
-            return item.brand === cat
-        })
-        setfilterData1(result)
-    }
-    const sonyHandler = (cat) => {
-        const result = productsData.filter((item) => {
-            return item.brand === cat
-        })
-        setfilterData1(result)
-    }
-
-    const Neckbands = (cat) => {
-        const result = productsData.filter((item) => {
-            return item.category === cat
-        })
-        setfilterData1(result)
-    }
-    const Headphones = (cat) => {
-        const result = productsData.filter((item) => {
-            return item.category === cat
-        })
-        setfilterData1(result)
-
-    }
-    const Earbuds = (cat) => {
-        const result = productsData.filter((item) => {
-            return item.category === cat
-        })
-        setbackgroundColor('red')
-        setfilterData1(result)
-
-
-    }
-    const Earphones = (cat) => {
-        const result = productsData.filter((item) => {
-            return item.category === cat
-        })
-        setfilterData1(result)
-
-    }
-
-  
-
-    const toprated=()=>{
-     const result=productsData.filter((item)=>{
-        return item.rateCount===5
-     })
-     setfilterData1(result)
-    }
 
    
 
-    const onChange=(e)=>{
-       setsearch(e.target.value)
-     
-        
-      }
+    
 
-      const filteredData =()=>{ productsData.filter((item) =>
-    item.toLowerCase().includes(search.toLowerCase())
+    const filterBrand=(value)=>{
+        const result=productsData.filter(item=>item.brand===value)
+        setfilterData1(result)
+        setactiveButton(value)
 
-  );
-  setfilterData1(filteredData)
+    }
 
-      }
-      
+    const catogoryHandler=(value)=>{
+   const result=productsData.filter(item=>item.category===value)
+   setfilterData1(result)
+   setactiveButton(value)
+    }
 
-      
-      
 
-  
+
+    const toprated = () => {
+        const result = productsData.filter((item) => {
+            return item.rateCount === 5
+        })
+        setfilterData1(result)
+    }
+
+
+
+    const onChange = (e) => {
+        setsearch(e.target.value)
+
+
+    }
+    const sortPriceLow = () => {
+        const sortedData = [...filterData1].sort((a, b) =>
+            a.finalPrice - b.finalPrice
+        )
+        setfilterData1(sortedData)
+
+    }
+    const sortPriceHigh = () => {
+        const sortedData = [...filterData1].sort((a, b) =>
+            a.finalPrice - b.finalPrice
+
+        )
+        setfilterData1(sortedData.reverse())
+
+    }
+
+    const filteredData = (e) => {
+        setsearch(e.target.value)
+       const result= productsData.filter((item) =>
+            item.toLowerCase().includes(search.toLowerCase())
+
+        );
+        setfilterData1(result)
+
+    }
+    const AllHandler=()=>{
+        setfilterData1(productsData)
+    }
+
+    const menuitemsBrand = [...new Set(productsData.map(item => item.brand))]
+
+
     return (
         <div>
 
             <div className="container-fluid mt-5">
                 <div className="row">
-                    <div className="col- col-md-2 col-lg-2 text-white mx-3" style={{ position: 'fixed', top: '0' }}>
-                    <input type="text" value={search}  onChange={onChange}/>
-                  
-                    
-                    
+                    <div className="col- col-md-2 col-lg-2 text-white mx-3" >
+                        <input type="text" value={search} onChange={(e)=>filteredData(e)} />
+
+
+
                         <h4>Sort By</h4>
                         <hr className='text-white' />
                         <div style={{ cursor: 'pointer' }}>
-                           <ul>
-                           
-                           <li><p>Latest</p></li>
-                           <li> <p onClick={() => featureproduct('featuredproduct')}>Featured Product</p></li>
-                           <li> <p onClick={() => lowestPrice('finalPrice')}>Price(lowest First)</p></li>
-                           <li> <p>Price(High First)</p></li>
-                           <li> <p onClick={()=>toprated()}>Top Rated</p></li>
+                            <ul>
+                                <li><p onClick={() => AllHandler()}>All Products</p></li>
+                                <li><p>Latest</p></li>
+                                <li> <p onClick={() => featureproduct('featuredproduct')}>Featured Product</p></li>
+                                <li> <p onClick={() => sortPriceLow()}>Price(lowest First)</p></li>
+                                <li> <p onClick={() => sortPriceHigh()}>Price(High First)</p></li>
+                                <li> <p onClick={() => toprated()}>Top Rated</p></li>
 
-                           </ul>
+                            </ul>
+                            <div>
+                                <select id="priceRanges" onChange={handleRangeChange}>
+                                    <option value="">Select a range</option>
+                                    {priceRanges.map((range, index) => (
+                                        <option key={index} value={range}>
+                                            {range}
+                                        </option>
+                                    ))}
+                                </select>
+                            </div>
+
                         </div>
                         <h4 className='mt-5'>Filted By</h4>
 
@@ -145,10 +158,13 @@ const Specification = ({ getProductData, Data, getCartData, menuitems, filterDat
                         <h4>Brands</h4>
                         <div className='mx-4' style={{ cursor: 'pointer' }}>
                             <ul>
+                            {menuitemsBrand.map(item=>(
+                                <div key={item.id}>
+                                    <p onClick={()=>filterBrand(item)} style={{backgroundColor:activeButton===item? 'red':''}} >{item}</p>
+                                </div>
+                            ))}
 
-                                <li> <p onClick={() => jblHandler('JBL')}>Jbl</p></li>
-                                <li> <p onClick={() => boatHandler('boAt')}>BoAt</p></li>
-                                <li> <p onClick={() => sonyHandler('Sony')}>Sony</p></li>
+                              
                             </ul>
                         </div>
 
@@ -158,10 +174,10 @@ const Specification = ({ getProductData, Data, getCartData, menuitems, filterDat
                         <h4>Catogories</h4>
                         <div className='mx-4' style={{ cursor: 'pointer' }}>
                             <ul>
-                                <li> <p  onClick={() => Earphones('Earphones')} style={{backgroundColor}}>Earphones</p></li>
-                                <li> <p onClick={() => Earbuds('Earbuds')}>Earbuds</p></li>
-                                <li> <p onClick={() => Headphones('Headphones')}>Headphones</p></li>
-                                <li> <p onClick={() => Neckbands('Neckbands')}>Neckbands</p></li>
+                              {menuitems.map((value)=>(
+                              <div>
+                              <p onClick={()=>catogoryHandler(value)} style={{backgroundColor:activeButton===value? 'red':''}}>{value}</p>
+                              </div> ))}
                             </ul>
 
                         </div>
@@ -170,12 +186,12 @@ const Specification = ({ getProductData, Data, getCartData, menuitems, filterDat
                             <hr className='text-white' />
 
                             <h4>Price</h4>
-                            <input type="range" name="price" max='10000' min='499' step='100' value={range} onChange={(e)=>setrange(e.target.value)} id="" />
+                            <input type="range" name="price" max='10000' min='499' step='100' value={range} onChange={(e) => setrange(e.target.value)} id="" />
                             <h4>{range}</h4>
                         </div>
 
                     </div>
-                    <div className="col-md-9   " style={{marginLeft:'300px'}}>
+                    <div className="col-md-9   ">
                         <div class="row">
 
                             {

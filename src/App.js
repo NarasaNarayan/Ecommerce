@@ -11,6 +11,7 @@ import Footer from './Components/Footer';
 import OurAdvantages from './Components/OurAdvantages';
 import ScrollingCarousel from './Components/ScrollingCarousel';
 import Specification from './Components/Specification';
+import SignUp from './Components/SignUp';
 
 
 function App() {
@@ -21,6 +22,24 @@ function App() {
   const [Data, setData] = useState(productsData)
   const [loadedpredata, setloadedpredata] = useState(false)
   const [cartData, setcartData] = useState([])
+  const [activeButton, setactiveButton] = useState(null)
+  const [user, setuser] = useState({})
+  const [islogin, setislogin] = useState(false)
+  
+
+
+  useEffect(() => {
+    loadData()
+  }, [])
+
+  let loadData = () => {
+    const user = JSON.parse(localStorage.getItem('loggedInUser'))
+    console.log(user);
+    if (user !== null) {
+      setuser(user)
+      setislogin(true)
+    }
+  }
 
 
   const getProductData = (Data) => {
@@ -96,19 +115,22 @@ function App() {
   const filterData = (val) => {
     const newItems = productsData.filter(item => item.category === val)
     setData(newItems)
+    setactiveButton(val)
   }
 
 
-
-
+  const handleLogout = () => {
+    setuser({})
+    setislogin(false)
+  }
 
 
   return (
     <div>
       <BrowserRouter>
-        <Navbar number={number} getProductData={getProductData}/>
+        <Navbar number={number} getProductData={getProductData} login={islogin} />
         <Routes>
-          <Route path='/' element={<TopProducts getProductData={getProductData} Data={Data} getCartData={getCartData} menuitems={menuitems} setData={setData} filterData={filterData} />} />
+          <Route path='/' element={<TopProducts activeButton={activeButton} getProductData={getProductData} Data={Data} getCartData={getCartData} menuitems={menuitems} setData={setData} filterData={filterData} />} />
 
           <Route path='/ProductDetails' element={<ProductDetails product={product} getCartData={getCartData} getProductData={getProductData} />} />
 
@@ -119,8 +141,10 @@ function App() {
           <Route path='/ScrollingCarousel' element={<ScrollingCarousel getProductData={getProductData} Data={Data} getCartData={getCartData} menuitems={menuitems} setData={setData} filterData={filterData} />} />
 
           <Route path='/Specification' element={<Specification getProductData={getProductData} Data={Data} getCartData={getCartData} menuitems={menuitems} setData={setData} filterData={filterData}/>} />
-   
+          <Route path='/SignUp' element={<SignUp />} />
+         
         </Routes>
+
         <OurAdvantages />
         <Footer />
       </BrowserRouter>

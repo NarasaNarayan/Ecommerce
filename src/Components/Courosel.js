@@ -30,8 +30,8 @@ const Courosel = () => {
           </div>
           <div className="carousel-item  bg-dark">
             <div>
-              <div className="row">
-                <div className="col mt-5  text-left my-5" style={{ marginLeft: '15rem' }}>
+              <div className="row m-auto">
+                <div className="col   text-left my-5" style={{ marginLeft: '15rem' }}>
                   <p className='text-white' >Sony WX-j8697</p>
 
                   <h4 className='text-white'>Give Your Favourite <br />
@@ -40,7 +40,7 @@ const Courosel = () => {
                   <p className='text-white'> @19,990</p>
                   <button className='btn btn-danger btn-sm'>Shop Now</button>
                 </div>
-                <div className="col">
+                <div className="col col-md-6">
                   <img classNameName='img-fluid' src={require('../Assets/images/products/sonyXb910n-1.png')} alt='' style={{ width: '300px', height: '300px' }} />
                 </div>
               </div>

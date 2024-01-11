@@ -118,7 +118,7 @@ const ProductDetails = ({ product,getProductData,getCartData }) => {
                                 </div>
                                 <hr className='text-white' />
 
-                                <a href="#" className="btn btn-danger">AddToCart</a>
+                                <button onClick={()=>addHandler(product)} className="btn btn-danger">AddToCart</button>
                             </div>
                         </div>
 
@@ -128,6 +128,7 @@ const ProductDetails = ({ product,getProductData,getCartData }) => {
             <div>
             </div>
             {/* specification overview revies starts here  */}
+
 
             <div className="container-fluid  text-white mt-5">
             <button className='btn btn-danger  ' style={{marginLeft:'45%'}}>Specification</button>
@@ -181,6 +182,8 @@ const ProductDetails = ({ product,getProductData,getCartData }) => {
 
 
            <div className='container-fluid'>
+           <h1 className='text-center text-white mt-5'>Related Products</h1>
+
            <div class="row">
            {
             productsData.filter(item=>item.category===product.category).map((item, index) => (

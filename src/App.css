@@ -28,4 +28,5 @@ color: rgb(114, 112, 112);
 .grow:hover{
   scale: 1.1;
   cursor: pointer;
+ 
 }

@@ -1,11 +1,11 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import Buttons from './Buttons'
 import { Link, useNavigate } from 'react-router-dom'
 import Courosel from './Courosel'
 import ScrollingCarousel from './ScrollingCarousel'
 
 
-const TopProducts = ({ getProductData,Data,getCartData,menuitems,filterData,setData }) => {
+const TopProducts = ({ getProductData,Data,getCartData,menuitems,filterData,setData,activeButton }) => {
   console.log('topproductsdata',Data);
 const navigate=useNavigate()
   const SendProductDetails = (item) => {
@@ -14,6 +14,8 @@ const navigate=useNavigate()
     console.log('image',Data);
     navigate('/ProductDetails')
   }
+ 
+
 
   const addHandler=(item)=>{
     getCartData(item)
@@ -40,7 +42,7 @@ const navigate=useNavigate()
 
       <h1 className='text-center text-white '>Top Products</h1>
 
-      <Buttons menuitems={menuitems} filterData={filterData}setData={setData}  />
+    <Buttons menuitems={menuitems} filterData={filterData}setData={setData} activeButton={activeButton}  />
 
       <div className="container-fluid pt-2 d-flex" style={{ backgroundColor: ' rgb(20,18,20)' }}>
         <div className="row " >
