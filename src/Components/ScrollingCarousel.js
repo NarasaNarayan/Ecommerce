@@ -24,7 +24,7 @@ const ScrollingCarousel = ({getProductData}) => {
         <marquee className='text-white '  behavior="alternate" direction="left" onmouseover="this.stop();" onmouseleave="this.start();">
           {
             productsData.map((item)=>(
-              <span>
+              <span class>
               <img  onClick={()=>SendProductDetails(item)}  className='img-fluid grow mx-5 ' src={item.heroImage} alt="" style={{width:'100px',height:'100px'}}/>
               
               

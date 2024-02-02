@@ -37,7 +37,7 @@ const ProductDetails = ({ product,getProductData,getCartData }) => {
                 <div className="row">
 
 
-                    <div className="col-md-1">
+                    <div className=" col-2 col-md-1 col-lg-1">
 
 
 
@@ -48,7 +48,7 @@ const ProductDetails = ({ product,getProductData,getCartData }) => {
                                     return (
                                         <div>
 
-                                            <img onClick={() => setimage(image)} onMouseOver={() => setimage(image)} className='img-fluid mt-4 ' src={image} alt="" style={{ border: '1px solid white', backgroundColor: '#212529' }} />
+                                            <img onClick={() => setimage(image)} onMouseOver={() => setimage(image)} className='img-fluid mx-auto mb-4 ' src={image} alt="" style={{ border: '1px solid white', backgroundColor: '#212529' }} />
                                         </div>
 
                                     )
@@ -65,7 +65,7 @@ const ProductDetails = ({ product,getProductData,getCartData }) => {
 
                     </div>
 
-                    <div className="col-md-6 justify-content-left">
+                    <div className="col-8  col-md-6 justify-content-left mx-auto">
 
 
                         <img className='img-fluid w-75 bg-dark' src={image} alt="" style={{ border: '1px solid white' }} />
@@ -78,7 +78,7 @@ const ProductDetails = ({ product,getProductData,getCartData }) => {
 
 
                         <div className="card " style={{ backgroundColor: '#212529' }} >
-                            <button onClick={closeHandler} className='btn btn-danger w-25' style={{ marginLeft: "260px" }}>close</button>
+                            <button onClick={closeHandler} className='btn btn-danger w-25 mx-end'>close</button>
                             <div className="card-body">
 
                                 <h2 className='text-white'>{product.title}</h2>

@@ -1,4 +1,7 @@
 import { useEffect, useState } from 'react';
+import "bootstrap/dist/css/bootstrap.min.css";
+import 'bootstrap/dist/js/bootstrap.min.js'
+import 'bootstrap/dist/js/bootstrap.bundle';
 import './App.css';
 import Login from './Components/Login';
 import Navbar from './Components/Navbar';
@@ -30,7 +33,7 @@ function App() {
 
   useEffect(() => {
     loadData()
-  }, [])
+  } )
 
   let loadData = () => {
     const user = JSON.parse(localStorage.getItem('loggedInUser'))
@@ -128,7 +131,7 @@ function App() {
   return (
     <div>
       <BrowserRouter>
-        <Navbar number={number} getProductData={getProductData} login={islogin} />
+        <Navbar number={number} getProductData={getProductData} islogin={islogin} />
         <Routes>
           <Route path='/' element={<TopProducts activeButton={activeButton} getProductData={getProductData} Data={Data} getCartData={getCartData} menuitems={menuitems} setData={setData} filterData={filterData} />} />
 

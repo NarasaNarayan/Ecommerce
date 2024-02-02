@@ -4,11 +4,9 @@ import { useNavigate } from 'react-router-dom'
 
 const Specification = ({ getProductData, Data, getCartData, menuitems, filterData, setData }) => {
     const navigate = useNavigate()
-    const [filterDataCopy, setfilterDataCopy] = useState([])
     const [filterData1, setfilterData1] = useState(productsData)
     const [sortedPriceProducts, setsortedPriceProducts] = useState([])
     const [range, setrange] = useState(499)
-    const [search, setsearch] = useState('')
     const [activeButton, setactiveButton] = useState(null)
 
 
@@ -80,11 +78,7 @@ const Specification = ({ getProductData, Data, getCartData, menuitems, filterDat
 
 
 
-    const onChange = (e) => {
-        setsearch(e.target.value)
-
-
-    }
+   
     const sortPriceLow = () => {
         const sortedData = [...filterData1].sort((a, b) =>
             a.finalPrice - b.finalPrice
@@ -101,15 +95,7 @@ const Specification = ({ getProductData, Data, getCartData, menuitems, filterDat
 
     }
 
-    const filteredData = (e) => {
-        setsearch(e.target.value)
-       const result= productsData.filter((item) =>
-            item.toLowerCase().includes(search.toLowerCase())
-
-        );
-        setfilterData1(result)
-
-    }
+    
     const AllHandler=()=>{
         setfilterData1(productsData)
     }
@@ -120,10 +106,10 @@ const Specification = ({ getProductData, Data, getCartData, menuitems, filterDat
     return (
         <div>
 
-            <div className="container-fluid mt-5">
+            <div className="container-fluid mt-5 " style={{}}>
                 <div className="row">
-                    <div className="col- col-md-2 col-lg-2 text-white mx-3" >
-                        <input type="text" value={search} onChange={(e)=>filteredData(e)} />
+                    <div className="col- col-md-2 col-lg-2 text-white bg-black mx-3 " style={{height: '500px',
+    overflowY: 'scroll'}} >
 
 
 
@@ -135,7 +121,7 @@ const Specification = ({ getProductData, Data, getCartData, menuitems, filterDat
                                 <li><p>Latest</p></li>
                                 <li> <p onClick={() => featureproduct('featuredproduct')}>Featured Product</p></li>
                                 <li> <p onClick={() => sortPriceLow()}>Price(lowest First)</p></li>
-                                <li> <p onClick={() => sortPriceHigh()}>Price(High First)</p></li>
+                                 <li> <p onClick={() => sortPriceHigh()}>Price(High First)</p></li>
                                 <li> <p onClick={() => toprated()}>Top Rated</p></li>
 
                             </ul>
@@ -191,13 +177,13 @@ const Specification = ({ getProductData, Data, getCartData, menuitems, filterDat
                         </div>
 
                     </div>
-                    <div className="col-md-9   ">
+                    <div className=" col-12 col-sm-12 col-md-9 col-lg-9   " style={{width:''}}>
                         <div class="row">
 
                             {
                                 filterData1.map((item, index) => (
 
-                                    <div className="col-md-4">
+                                    <div className="col-md-4 ">
                                         <div key={index} className="card  " style={{ border: "0.1px solid rgb(114, 112, 112)", backgroundColor: ' #141414' }}>
                                             <img className='img-fluid  mx-auto my-auto ' onClick={() => SendProductDetails(item)} src={item.heroImage} alt="..." style={{
                                                 width: '150px', height: '150px', backgroundColor: "#161819"
