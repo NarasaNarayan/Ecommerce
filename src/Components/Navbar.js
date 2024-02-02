@@ -76,7 +76,7 @@ const Navbar = ({ number, getProductData,islogin }) => {
       </nav>
      </div>
 
-      <div className='bg-white w-25 ' style={{ marginTop: '60px', marginLeft: '65%' }}>
+      <div className='bg-white w-25 '>
 
 
         {

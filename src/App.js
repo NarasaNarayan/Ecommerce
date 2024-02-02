@@ -2,6 +2,9 @@ import { useEffect, useState } from 'react';
 import "bootstrap/dist/css/bootstrap.min.css";
 import 'bootstrap/dist/js/bootstrap.min.js'
 import 'bootstrap/dist/js/bootstrap.bundle';
+import Slider from 'react-slick';
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
 import './App.css';
 import Login from './Components/Login';
 import Navbar from './Components/Navbar';
@@ -12,9 +15,9 @@ import ProductDetails from './Components/ProductDetails';
 import Cart from './Components/Cart';
 import Footer from './Components/Footer';
 import OurAdvantages from './Components/OurAdvantages';
-import ScrollingCarousel from './Components/ScrollingCarousel';
 import Specification from './Components/Specification';
 import SignUp from './Components/SignUp';
+import Multicorousel from './Components/Multicorousel';
 
 
 function App() {
@@ -141,9 +144,7 @@ function App() {
           
           <Route path='/Cart' element={<Cart cartData={cartData} increment={increment} decrement={decrement} deleteHandler={deleteHandler} />} />
 
-          <Route path='/ScrollingCarousel' element={<ScrollingCarousel getProductData={getProductData} Data={Data} getCartData={getCartData} menuitems={menuitems} setData={setData} filterData={filterData} />} />
-
-          <Route path='/Specification' element={<Specification getProductData={getProductData} Data={Data} getCartData={getCartData} menuitems={menuitems} setData={setData} filterData={filterData}/>} />
+          <Route path='/Multicorousel' element={<Multicorousel getProductData={getProductData} Data={Data} getCartData={getCartData} menuitems={menuitems} setData={setData} filterData={filterData}/>} />
           <Route path='/SignUp' element={<SignUp />} />
          
         </Routes>

@@ -3,6 +3,7 @@ import Buttons from './Buttons'
 import { useNavigate } from 'react-router-dom'
 import Courosel from './Courosel'
 import ScrollingCarousel from './ScrollingCarousel'
+import Multicorousel from './Multicorousel'
 
 
 const TopProducts = ({ getProductData, Data, getCartData, menuitems, filterData, setData, activeButton }) => {
@@ -32,7 +33,7 @@ const TopProducts = ({ getProductData, Data, getCartData, menuitems, filterData,
 
 
       {/* ProductCarousel sarts here  */}
-      <ScrollingCarousel getProductData={getProductData} Data={Data} />
+      <Multicorousel getProductData={getProductData} Data={Data} />
       {/* ProductCarousel ends here  */}
 
 

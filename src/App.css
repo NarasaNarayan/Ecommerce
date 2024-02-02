@@ -41,3 +41,21 @@ color: rgb(114, 112, 112);
 .unstyle:hover{
   color: white;
 }
+.slick-dots li button {
+  background-color: white;
+}
+
+/* .slick-slide {
+  transition: transform 0.5s ease-in-out;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+} */
+/* .active {
+  transform: scale(2.0);  
+  z-index: 1; 
+  margin-left: 50px; 
+  padding-bottom: 20px;
+  padding-top: 10px;/
+} */
