@@ -3,7 +3,8 @@ import { useNavigate } from 'react-router-dom'
 
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick-theme.css';
-import '../App.css';
+import './Multi.css';
+
 
 
 import productsData from '../Assets/productsData';
@@ -83,7 +84,7 @@ const Multicorousel = ({getProductData}) => {
       {data.map((item, index) => (
         <div key={index}  >
           {/* Render your dynamic content here */}
-          <div className={`slick-slide ${index === activeIndex ? 'active' : ''}`}>
+          <div className={`slick-slide ${index === activeIndex ? 'aactive' : ''}`}>
           <img  onClick={()=>SendProductDetails(item)} className='img-fluid grow w-50 mx-4 pt-3' src={item.heroImage} alt={item.title} />
           </div>
           <p className='text-white  ' style={{fontSize:'12px'}}><span className='mx-1'>&#8377;</span>{item.title}</p>

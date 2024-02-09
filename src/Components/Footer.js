@@ -1,6 +1,7 @@
 import React from 'react'
 
 const Footer = () => {
+
     return (
 
         <div>
@@ -97,6 +98,8 @@ const Footer = () => {
                 </div>
 
             </div>
+
+           
 
 
         </div>

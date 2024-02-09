@@ -1,0 +1,13 @@
+.slick-slide {
+  transition: transform 0.5s ease-in-out;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+}
+.aactive {
+  transform: scale(1.5);  
+  z-index: 1; 
+  padding-bottom: 30px;
+  padding-top: 10px;
+}

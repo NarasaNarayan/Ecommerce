@@ -1,6 +1,12 @@
 import React from 'react'
+import { useNavigate } from 'react-router-dom'
 
 const Courosel = () => {
+  const navigate=useNavigate()
+  const shopHandler=()=>{
+    navigate('/Specification')
+
+  }
   return (
     <div className=''>
       <div id="carouselExampleIndicators" className="carousel slide " data-bs-ride="carousel" >
@@ -15,17 +21,17 @@ const Courosel = () => {
           <div className="carousel-item active  align-items-right bg-dark">
             <div>
               <div className="row">
-              <div className="col mt-5 my-5 text-left " style={{ marginLeft: '8rem' }}>
+              <div className="col mt-5 my-5 text-left " style={{ marginLeft: '10rem' }}>
                   <p className='text-white' >boat Airdropes 131 WX-j8697</p>
 
                   <h4 className='text-white'>Featherweight For <br />
                     Comport All-Day
                   </h4>
                   <p className='text-white'> @1099 <s>@2099</s></p>
-                  <button className='btn btn-danger btn-sm'>Shop Now</button>
+                  <button className='btn btn-danger btn-sm' onClick={shopHandler}>Shop Now</button>
                 </div>
                 <div className="col">
-                  <img classNameName='img-fluid' src={require('../Assets/images/products/boat410-2.png')} alt='' style={{ width: '300px', height: '300px' }} />
+                  <img classNameName='img-fluid' src={require('../Assets/images/products/boat410-2.png')} alt='' style={{ width: '300px', height: '300px',marginLeft:'50px' }} />
                 </div>
               </div>
             </div>
@@ -36,17 +42,17 @@ const Courosel = () => {
           <div className="carousel-item  bg-dark">
             <div>
               <div className="row ">
-                <div className="col   text-left my-5" style={{ marginLeft: '8rem' }}>
+                <div className="col   text-left my-5" style={{ marginLeft: '10rem' }}>
                   <p className='text-white' >Sony WX-j8697</p>
 
                   <h4 className='text-white'>Give Your Favourite <br />
                     Music A Boost.
                   </h4>
                   <p className='text-white'> @19,990</p>
-                  <button className='btn btn-danger btn-sm'>Shop Now</button>
+                  <button className='btn btn-danger btn-sm'onClick={shopHandler}>Shop Now</button>
                 </div>
                 <div className="col ">
-                  <img classNameName='img-fluid' src={require('../Assets/images/products/sonyXb910n-1.png')} alt='' style={{ width: '300px', height: '300px' }} />
+                  <img classNameName='img-fluid' src={require('../Assets/images/products/sonyXb910n-1.png')} alt='' style={{ width: '300px', height: '300px',marginLeft:'50px' }} />
                 </div>
               </div>
             </div>
@@ -57,17 +63,17 @@ const Courosel = () => {
           <div className="carousel-item  bg-dark">
             <div>
               <div className="row">
-                <div className="col mt-5  text-left my-5" style={{ marginLeft: '8rem' }}>
+                <div className="col mt-5  text-left my-5" style={{ marginLeft: '10rem' }}>
                   <p className='text-white' >boat Airdropes 131 WX-j8697</p>
 
                   <h4 className='text-white'>Featherweight For <br />
                     Comport All-Day
                   </h4>
                   <p className='text-white'> @1099 <s>@2099</s></p>
-                  <button className='btn btn-danger btn-sm'>Shop Now</button>
+                  <button className='btn btn-danger btn-sm' onClick={shopHandler}>Shop Now</button>
                 </div>
                 <div className="col">
-                  <img classNameName='img-fluid' src={require('../Assets/images/products/boat131-3.png')} alt='' style={{ width: '300px', height: '300px' }} />
+                  <img classNameName='img-fluid' src={require('../Assets/images/products/boat131-3.png')} alt='' style={{ width: '300px', height: '300px',marginLeft:'50px' }} />
                 </div>
               </div>
             </div>

@@ -44,6 +44,9 @@ color: rgb(114, 112, 112);
 .slick-dots li button {
   background-color: white;
 }
+.underlineRemove{
+  text-decoration: none;
+}
 
 /* .slick-slide {
   transition: transform 0.5s ease-in-out;

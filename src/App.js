@@ -15,9 +15,9 @@ import ProductDetails from './Components/ProductDetails';
 import Cart from './Components/Cart';
 import Footer from './Components/Footer';
 import OurAdvantages from './Components/OurAdvantages';
-import Specification from './Components/Specification';
 import SignUp from './Components/SignUp';
 import Multicorousel from './Components/Multicorousel';
+import Specification from './Components/Specification';
 
 
 function App() {
@@ -146,6 +146,7 @@ function App() {
 
           <Route path='/Multicorousel' element={<Multicorousel getProductData={getProductData} Data={Data} getCartData={getCartData} menuitems={menuitems} setData={setData} filterData={filterData}/>} />
           <Route path='/SignUp' element={<SignUp />} />
+          <Route path='/Specification' element={<Specification getProductData={getProductData} Data={Data} getCartData={getCartData} menuitems={menuitems} setData={setData} filterData={filterData}/>} />
          
         </Routes>
 

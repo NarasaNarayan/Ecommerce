@@ -109,8 +109,8 @@ const Login = ({}) => {
                                 <div className='d-grid mb-3'> 
                                     <button class=' class="form-control btn btn-primary' onClick={submitHanler}>Login</button>
                                 </div>
-                                <div> <Link to='/SignUp'> <p className='text-end'  >Forgot Password?</p></Link> <br /></div>
-                                <div>  <Link to='/SignUp'> <p className='text-center  ' >or  SignUp</p></Link>
+                                <div> <Link to='/SignUp' className='underlineRemove'> <p className='text-end '  >Forgot Password?</p></Link> <br /></div>
+                                <div>  <Link to='/SignUp' className='underlineRemove'> <p className='text-center'>  SignUp</p></Link>
                                 </div>
                             </div>
                         </div>

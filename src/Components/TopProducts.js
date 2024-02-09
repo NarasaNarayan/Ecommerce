@@ -2,7 +2,6 @@ import React, { } from 'react'
 import Buttons from './Buttons'
 import { useNavigate } from 'react-router-dom'
 import Courosel from './Courosel'
-import ScrollingCarousel from './ScrollingCarousel'
 import Multicorousel from './Multicorousel'
 
 
@@ -89,8 +88,26 @@ const TopProducts = ({ getProductData, Data, getCartData, menuitems, filterData,
         </div>
       </div>
 
-
+    {/* browse all products starts here  */}
+   <div className='container-fluid px-3' >
+    <div class="row ">
+      <div class="col-6 col-sm-6 col-md-3 col-lg-3 ">
+      <div class="card border" style={{ backgroundColor: ' rgb(20,18,20)' }} >
+  <div class="card-body">
+    <a href="#" class="btn btn-danger">Browse All Products</a>
+  </div>
+   
+</div>
+      </div>
     </div>
+   </div>
+
+
+   
+
+
+    {/* main div ends here  */}
+  </div>
   )
 }
 

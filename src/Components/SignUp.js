@@ -75,7 +75,7 @@ const SignUp = ({ login, handleLogin }) => {
                                     <button class=' class="form-control btn btn-primary' onClick={submitHanler}>SignUp</button>
                                 </div>
                                 <p className='text-center'>Already an account?</p>
-                                <div>  <Link to='/Login'> <p className='text-center ' style={{  textDecoration: 'none' }}>  Login</p></Link>
+                                <div>  <Link to='/Login' className='underlineRemove text-center'><p>Login</p></Link>
                                 </div>
                             </div>
                         </div>

@@ -51,7 +51,7 @@ const Navbar = ({ number, getProductData,islogin }) => {
 
   
               <li className="nav-item text-white">
-            <Link className='unstyle nav-link' to="/Specification" style={{}}>Browse All products</Link>
+            <Link className='unstyle nav-link' to="/Specification">Browse All products</Link>
               </li>
               <li className="nav-item">
                 <Link to='/Cart' className="nav-link active text-white" aria-current="page" href="#"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-cart-plus-fill" viewBox="0 0 16 16">

@@ -125,7 +125,7 @@ const Specification = ({ getProductData, Data, getCartData, menuitems, filterDat
                                 <li> <p onClick={() => toprated()}>Top Rated</p></li>
 
                             </ul>
-                            <div>
+                            {/* <div>
                                 <select id="priceRanges" onChange={handleRangeChange}>
                                     <option value="">Select a range</option>
                                     {priceRanges.map((range, index) => (
@@ -134,7 +134,7 @@ const Specification = ({ getProductData, Data, getCartData, menuitems, filterDat
                                         </option>
                                     ))}
                                 </select>
-                            </div>
+                            </div> */}
 
                         </div>
                         <h4 className='mt-5'>Filted By</h4>
@@ -171,9 +171,9 @@ const Specification = ({ getProductData, Data, getCartData, menuitems, filterDat
                         <div>
                             <hr className='text-white' />
 
-                            <h4>Price</h4>
+                            {/* <h4>Price</h4>
                             <input type="range" name="price" max='10000' min='499' step='100' value={range} onChange={(e) => setrange(e.target.value)} id="" />
-                            <h4>{range}</h4>
+                            <h4>{range}</h4> */}
                         </div>
 
                     </div>
