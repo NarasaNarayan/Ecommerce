@@ -76,7 +76,7 @@ const Navbar = ({ number, getProductData,islogin }) => {
       </nav>
      </div>
 
-      <div className='bg-white w-25 '>
+      <div className='bg-white w-100 '>
 
 
         {
@@ -85,19 +85,21 @@ const Navbar = ({ number, getProductData,islogin }) => {
           searchData.filter(item => {
             
             if (inputData.length === 0) {
-              return;
+              return ;
 
             }
             else if (item.title.toLowerCase().includes(inputData.toLowerCase())) {
               return item
             }
+            else{
+              return <h1>no data found</h1>
+            }
 
 
           }).slice(0, 5)
             .map((title) => (
-              <div >
-
-                <span onClick={() => getSearchItemShow(title)} className='text-black text-center ' style={{cursor:'pointer'}}>{title.title}</span>
+              <div>
+<span onClick={() => getSearchItemShow(title)} className='text-black text-center ' style={{cursor:'pointer'}}>{title.title}</span>
                 <br /></div>
             ))
         }

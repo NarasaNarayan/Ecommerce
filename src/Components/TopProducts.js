@@ -1,6 +1,6 @@
 import React, { } from 'react'
 import Buttons from './Buttons'
-import { useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import Courosel from './Courosel'
 import Multicorousel from './Multicorousel'
 
@@ -94,7 +94,7 @@ const TopProducts = ({ getProductData, Data, getCartData, menuitems, filterData,
       <div class="col-6 col-sm-6 col-md-3 col-lg-3 ">
       <div class="card border" style={{ backgroundColor: ' rgb(20,18,20)' }} >
   <div class="card-body">
-    <a href="#" class="btn btn-danger">Browse All Products</a>
+    <Link to="/Specification" class="btn btn-danger">Browse All Products</Link>
   </div>
    
 </div>
